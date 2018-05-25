@@ -1605,7 +1605,10 @@ if (typeof jQuery === 'undefined') {
     var el     = $element[0]
     var isBody = el.tagName == 'BODY'
 
-    var elRecleft, height: elRect.bottom - elRect.top })
+    var elRect    = el.getBoundingClientRect()
+    if (elRect.width == null) {
+      // width and height are missing in IE8, so compute them manually; see https://github.com/twbs/bootstrap/issues/14093
+      elRect = $.extend({}, elRect, { width: elRect.right - elRect.left, height: elRect.bottom - elRect.top })
     }
     var elOffset  = isBody ? { top: 0, left: 0 } : $element.offset()
     var scroll    = { scroll: isBody ? document.documentElement.scrollTop || document.body.scrollTop : $element.scrollTop() }
@@ -2236,11 +2239,6 @@ if (typeof jQuery === 'undefined') {
   }
 
   Affix.prototype.getState = function (scrollHeight, height, offsetTop, offsetBottom) {
-    var scrollTop    = this.$target.scrollTop()
-    var position     = this.$element.offset()
-    var targetHeight = this.$target.height()
-
-    if (offsetTop != null && this.affixed == 'top') return scrollTop < offsetTo, height, offsetTop, offsetBottom) {
     var scrollTop    = this.$target.scrollTop()
     var position     = this.$element.offset()
     var targetHeight = this.$target.height()

@@ -1039,7 +1039,11 @@ body .ui-tooltip {
 .ui-icon-arrowstop-1-e { background-position: -208px -32px; }
 .ui-icon-arrowstop-1-s { background-position: -224px -32px; }
 .ui-icon-arrowstop-1-w { background-position: -240px -32px; }
-.ui-icon-arrowthick-1round-position: -64px -48px; }
+.ui-icon-arrowthick-1-n { background-position: 0 -48px; }
+.ui-icon-arrowthick-1-ne { background-position: -16px -48px; }
+.ui-icon-arrowthick-1-e { background-position: -32px -48px; }
+.ui-icon-arrowthick-1-se { background-position: -48px -48px; }
+.ui-icon-arrowthick-1-s { background-position: -64px -48px; }
 .ui-icon-arrowthick-1-sw { background-position: -80px -48px; }
 .ui-icon-arrowthick-1-w { background-position: -96px -48px; }
 .ui-icon-arrowthick-1-nw { background-position: -112px -48px; }
@@ -1217,8 +1221,5 @@ body .ui-tooltip {
 	background: #999999;
 	opacity: .45;
 	filter: Alpha(Opacity=45); /* support: IE8 */
-	border-radius: 5px;
-}
-                                                                                                                                                                                                                =45); /* support: IE8 */
 	border-radius: 5px;
 }

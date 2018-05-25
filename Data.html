@@ -2,23 +2,18 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>US Election 16 Tweets Analysis</title>
-       
-	    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script src="js/jquery-ui-1.11.4-start-theme.custom/jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
+        <script src="js/jquery-ui-1.11.4-start-theme.custom/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
         <script src="js/bootstrap-3.3.6-dist/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
-		
         <link rel="stylesheet" href="js/jquery-ui-1.11.4-start-theme.custom/jquery-ui-1.11.4.custom/jquery-ui.min.css">
         <link rel="stylesheet" href="js/bootstrap-3.3.6-dist/bootstrap-3.3.6-dist/css/bootstrap.css">
-        <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>		
+        <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>	
         <link rel="icon" type="image/png" href="images/favicon.ico">
 
         <link rel="stylesheet" href="css/backToTop.css"> <!-- Gem style -->
         <script src="js/backToTop/modernizr.js"></script> <!-- Modernizr -->
 
         <link rel="stylesheet" href="css/style.css">
-		
-		
         <script>
             $(function () {
                 $(".accordion").accordion({
@@ -106,7 +101,7 @@
                 }
             }
         </script>
-        
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script type="text/javascript">
 
             google.charts.load('current', {'packages': ['corechart']});
@@ -219,7 +214,11 @@
                     ['15:00-16:00', 5415, 2586, 1514],
                     ['16:00-17:00', 6503, 3470, 2235],
                     ['17:00-18:00', 8082, 4540, 2543],
-                3081],
+                    ['18:00-19:00', 7173, 3945, 3199],
+                    ['19:00-20:00', 6645, 3988, 3559],
+                    ['20:00-21:00', 5910, 3857, 3925],
+                    ['21:00-22:00', 6636, 6124, 3560],
+                    ['22:00-23:00', 6439, 5093, 3081],
                     ['23:00-0:00', 6532, 4691, 3293],
                     ['0:00-1:00', 7156, 4882, 3386],
                     ['1:00-2:00', 8090, 5647, 3138],
@@ -1501,12 +1500,6 @@
 
                 var options = {
                     title: "Referenced Sites Frequencies",
-                    width: 1200,
-                    height: 600,
-                    bar: {groupWidth: "95%"},
-                    legend: {position: "none"}
-                };
-                var chart = new google.visualization.ites Frequencies",
                     width: 1200,
                     height: 600,
                     bar: {groupWidth: "95%"},

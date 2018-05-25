@@ -1712,7 +1712,16 @@ $.widget("ui.draggable", $.ui.mouse, {
 
 		/*
 		 * - Position generation -
-		 * This block generates everything position related - i.offsetParent = this.helper.offsetParent();
+		 * This block generates everything position related - it's the core of draggables.
+		 */
+
+		//Cache the margins of the original element
+		this._cacheMargins();
+
+		//Store the helper's css position
+		this.cssPosition = this.helper.css( "position" );
+		this.scrollParent = this.helper.scrollParent( true );
+		this.offsetParent = this.helper.offsetParent();
 		this.hasFixedAncestor = this.helper.parents().filter(function() {
 				return $( this ).css( "position" ) === "fixed";
 			}).length > 0;
@@ -2212,17 +2221,6 @@ $.widget("ui.draggable", $.ui.mouse, {
 		// Absolute position and offset (see #6884 ) have to be recalculated after plugins
 		if ( /^(drag|start|stop)/.test( type ) ) {
 			this.positionAbs = this._convertPositionTo( "absolute" );
-			ui.offset = this.positionAbs;
-		}
-		return $.Widget.prototype._trigger.call( this, type, event, ui );
-	},
-
-	plugins: {},
-
-	_uiHash: function() {
-		return {
-			helper: this.helper,
-			position: t	this.positionAbs = this._convertPositionTo( "absolute" );
 			ui.offset = this.positionAbs;
 		}
 		return $.Widget.prototype._trigger.call( this, type, event, ui );
@@ -9114,7 +9112,16 @@ $.extend(Datepicker.prototype, {
 			date,
 			// Check whether a format character is doubled
 			lookAhead = function(match) {
-				var matches = (iFormat + 1 tch === "@" ? 14 : (match === "!" ? 20 :
+				var matches = (iFormat + 1 < format.length && format.charAt(iFormat + 1) === match);
+				if (matches) {
+					iFormat++;
+				}
+				return matches;
+			},
+			// Extract a number from the string value
+			getNumber = function(match) {
+				var isDoubled = lookAhead(match),
+					size = (match === "@" ? 14 : (match === "!" ? 20 :
 					(match === "y" && isDoubled ? 4 : (match === "o" ? 3 : 2)))),
 					minSize = (match === "y" ? size : 1),
 					digits = new RegExp("^\\d{" + minSize + "," + size + "}"),
@@ -10924,21 +10931,6 @@ var dialog = $.widget( "ui.dialog", {
 var progressbar = $.widget( "ui.progressbar", {
 	version: "1.11.4",
 	options: {
-		max: 100,
-		value: 0,
-
-		change: null,
-		complete: null
-	},
-
-	min: 0,
-
-	_create: function() {
-		// Constrain initial value
-		this.oldValue = this.options.value = this._constrainedValue();
-
-		this.element
-			.addClass( "ui-progressbar ui-widget ui-wns: {
 		max: 100,
 		value: 0,
 

@@ -63,28 +63,6 @@ html, body {
     border: 1px dotted;
 }
 
-.Technologies {
-	margin: 20px 0;
-	border:2px dotted;
-	background-color:#c4bcbc;
-	border-radius:5px;
-}
-
-.Technologies ul {
-	list-style-type: none; 
-	margin: 0; 
-	padding: 0;
-}
-
-.Technologies li {
-	display: inline-block;
-	margin: 20px;
-}
-
-.Technologies img {
-	width: 130px;
-}
-
 .description {
     margin: 40px 0;
 }
